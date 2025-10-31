@@ -7,6 +7,7 @@
           <th>Numero</th>
           <th>Nombre</th>
           <th>Localidad</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -14,6 +15,9 @@
           <td>{{ departamento.numero }}</td>
           <td>{{ departamento.nombre }}</td>
           <td>{{ departamento.localidad }}</td>
+          <td><router-link 
+          :to="'/details/' + departamento.numero + '/' + departamento.nombre + '/' + departamento.localidad" 
+          class="btn btn-primary">Detalles</router-link></td>
         </tr>
       </tbody>
     </table>

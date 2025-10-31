@@ -11,4 +11,15 @@ export default class ServiceDepartamentos {
             })
         })
     }
+    createDepartamento(departamento){
+        return new Promise(function (resolve) {
+        let request = "api/departamentos"
+        let url = Global.urlDepartamentos + request
+            axios.post(url, departamento).then((response) => {
+                console.log("Departamento Creado");
+                resolve(response)
+            })
+
+        })
+    }
 }

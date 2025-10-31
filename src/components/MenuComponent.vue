@@ -11,6 +11,9 @@
                         <li class="nav-item">
                             <router-link class="nav-link" to="/">Departamentos</router-link>
                         </li>
+                        <li class="nav-item">
+                            <router-link class="nav-link" to="/createdepartamento">Create Departamento</router-link>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" @click="showDropdown = !showDropdown" aria-expanded="false">
                                 Oficios
@@ -28,7 +31,12 @@
 
 <script>
 export default {
-    name:"MenuComponent"
+    name:"MenuComponent",
+    data() {
+        return {
+            showDropdown: false
+        }
+    }
 }
 </script>
 
