@@ -7,7 +7,7 @@
           <th>Numero</th>
           <th>Nombre</th>
           <th>Localidad</th>
-          <th></th>
+          <th colspan="3"></th>
         </tr>
       </thead>
       <tbody>
@@ -17,7 +17,13 @@
           <td>{{ departamento.localidad }}</td>
           <td><router-link 
           :to="'/details/' + departamento.numero + '/' + departamento.nombre + '/' + departamento.localidad" 
-          class="btn btn-primary">Detalles</router-link></td>
+          class="btn btn-primary">Detalles</router-link>
+          </td>
+          <td><router-link 
+          :to="'/update/' + departamento.numero "
+          class="btn btn-warning">Update</router-link>
+          </td>
+          <td><button class="btn btn-close" @click="DeleteDepartamento(departamento.numero)"></button></td>
         </tr>
       </tbody>
     </table>
@@ -40,6 +46,14 @@ export default {
       this.departamentos = response
       this.status = true
     });
+  },
+  methods: {
+    DeleteDepartamento(id) {
+      service.deleteDepartamento(id).then(()=>{
+        console.log("Departamento Borrado");
+        window.location.reload()
+      })
+    }
   },
 }
 </script>
